@@ -5,12 +5,12 @@ import axios from 'axios';
 export default{
   data(){
     return{
-      url : 'http://127.0.0.1:8000',
+      url : 'http://127.0.0.1:8000/api',
     }
   },
   mounted(){
 
-    axios.get(this.url).then(res => {
+    axios.get(this.url + '/projects').then(res => {
 
       console.log(res);
 
