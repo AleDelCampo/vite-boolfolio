@@ -1,6 +1,13 @@
 <script>
+
 import axios from 'axios';
+import ProjectCards from './components/ProjectCards.vue';
+
 export default {
+
+  components:  {
+      ProjectCards,
+    },
 
   data() {
     return {
@@ -56,26 +63,10 @@ export default {
 
     <div v-if="!isLoading">
 
-      <div v-for="project in projects" :key="project.id">
-        <h2>{{ project.title }}</h2>
-
-        <p>{{ project.description }}</p>
-
-        <div v-if="project.type">
-          <small>{{ project.type.title }}</small>
-        </div>
-
-        <div>
-          <img class="img-size mt-2" :src="'http://127.0.0.1:8000/storage/' + project.image" alt="Copertina">
-        </div>
-
-        <div class="d-flex mt-2 gap-2">
-          <div v-for="technology in project.technologies" :key="technology.id">
-            <img class="icon-size" :src="'http://127.0.0.1:8000/storage/' + technology.preview" alt="Tecnologia">
-          </div>
-        </div>
-
-      </div>
+      <ProjectCards
+      v-for="project in projects"
+      :project="project"
+      ></ProjectCards>
 
       <nav>
 
