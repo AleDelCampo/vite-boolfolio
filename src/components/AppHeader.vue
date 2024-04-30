@@ -12,7 +12,7 @@ export default {
             <nav class="navbar">
                 <div class="container-fluid d-flex justify-content-between">
 
-                    <a href="https://fontmeme.com/casper-font/">
+                    <a href="#">
                         <img src="https://fontmeme.com/permalink/240430/990fbe74ade8eac19477253ccd13ab23.png" alt="casper-font" border="0">
                     </a>
 
