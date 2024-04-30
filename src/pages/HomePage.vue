@@ -46,7 +46,7 @@ export default {
 </script>
 
 <template>
-  <div class="">
+  <div>
 
     <h1>I nostri Projects:</h1>
 
