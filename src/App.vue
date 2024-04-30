@@ -62,6 +62,11 @@ export default {
 
   <div class="container py-4">
 
+
+
+
+    <router-view></router-view>
+
     <h1>I miei Projects:</h1>
 
     <div v-if="!isLoading">
