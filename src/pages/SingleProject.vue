@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import ProjectCards from './components/ProjectCards.vue';
+import ProjectCards from '../components/ProjectCards.vue';
 
 export default {
     name: 'SingleProject',
@@ -37,10 +37,7 @@ export default {
 <template>
 
     <div v-if="project">
-        <ProjectCards
-      v-for="project in projects"
-      :project="project"
-      ></ProjectCards>
+        <ProjectCards :project="project"></ProjectCards>
     </div>
     <div v-else>
         <div class="spinner-border" role="status">
