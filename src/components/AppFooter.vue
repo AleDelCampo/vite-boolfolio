@@ -59,7 +59,7 @@ export default {
 
                     <div class="components">
                         <ul>
-                            <li v-for="member in members"s>
+                            <li v-for="member in members">
                                 <div class="name">
                                     {{ member.nome }}
                                 </div>
@@ -111,7 +111,7 @@ export default {
             </h6>
 
             <div id="copyright">
-                Copyright© 2023, Boolean®. In caso di infrazione bisonga pagare millemila soldi in monete d'oro tassati del 2375432% dallo stato italiano.
+                Copyright© 2024, Boolean®. In caso di infrazione bisonga pagare millemila soldi in monete d'oro tassati del 2375432% dallo stato italiano.
             </div>
         </div>
 
