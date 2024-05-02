@@ -20,7 +20,10 @@ export default{
             </h1>
             
         <h4>Oops! Hai incontrato un errore.</h4>
-        <p class="text-muted">La pagina che stai cercando non è stata trovata.</p>
+        <p class="text-muted d-flex flex-column">La pagina che stai cercando non è stata trovata.
+            <router-link :to="{ name: 'home' }"
+            class="btn btn-outline-info btn-outline">Mostra</router-link>
+        </p>
     </div>
     </div>
 </template>
