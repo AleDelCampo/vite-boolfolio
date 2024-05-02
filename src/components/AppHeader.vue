@@ -1,14 +1,30 @@
 <script>
+
+import {store} from '../store.js';
+
 export default {
     name: 'AppHeader',
     data() {
         return {
-            filterQuery: ''
+            store,
         };
     },
     methods: {
         filterProjects() {
             this.$emit('filter-projects', this.filterQuery);
+        },
+
+        applyFilter(filterQuery) {
+
+            if (store.filterQuery.trim() === '') {
+                store.filteredProjects = store.projects;
+            } else {
+                store.filteredProjects = store.projects.filter(project =>
+                    project.title.toLowerCase().includes(store.filterQuery.toLowerCase())
+                );
+                console.log("sono nell'else")
+            }
+            console.log(store.filterQuery)
         }
     }
 }
@@ -27,7 +43,7 @@ export default {
                     </a>
 
                     <div>
-                        <input class="form-control" type="search" v-model="filterQuery" placeholder="Filtra progetti..." @input="filterProjects">
+                        <input class="form-control" type="search" v-model="store.filterQuery" placeholder="Filtra progetti..." @keyup="applyFilter(store.filterQuery)">
                     </div>
 
                 </div>

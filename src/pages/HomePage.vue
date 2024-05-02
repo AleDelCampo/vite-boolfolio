@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import AppHeader from '../components/AppHeader.vue';
+import {store} from '../store.js';
 
 export default {
   name: 'HomePage',
@@ -11,8 +12,7 @@ export default {
 
   data() {
     return {
-      projects: [],
-      filteredProjects: [],
+      store,
       apiLinks: [],
       apiPageNumber: 1,
       isLoading: true,
@@ -36,8 +36,8 @@ export default {
         if (res.data.success) {
           this.isLoading = false;
         }
-        this.projects = res.data.results.data;
-        this.filteredProjects = this.projects;
+        store.projects = res.data.results.data;
+        store.filteredProjects = store.projects;
         this.apiLinks = res.data.results.links;
       });
     },
@@ -46,8 +46,8 @@ export default {
       this.isLoading = true;
       axios.get(pageUrl)
         .then(response => {
-          this.projects = response.data.results.data;
-          this.filteredProjects = this.projects;
+          store.projects = response.data.results.data;
+          store.filteredProjects = store.projects;
           this.apiLinks = response.data.results.links;
           this.isLoading = false;
         });
@@ -57,23 +57,12 @@ export default {
       this.currentPage = pageNumber;
     },
     
-    applyFilter(filterQuery) {
-
-      if (filterQuery.trim() === '') {
-        this.filteredProjects = this.projects;
-      } else {
-        this.filteredProjects = this.projects.filter(project =>
-          project.title.toLowerCase().includes(filterQuery.toLowerCase())
-        );
-      }
-    }
+   
   }
 }
 </script>
 
 <template>
-
-<AppHeader @filter-projects="applyFilter" />
 
   <div class="container">
 
@@ -82,7 +71,7 @@ export default {
     <div v-if="!isLoading">
 
       <ul>
-        <li v-for="project in filteredProjects" :key="project.slug" class="mb-2">
+        <li v-for="project in store.filteredProjects" :key="project.slug" class="mb-2">
           {{ project.title }} <router-link :to="{ name: 'single-project', params: { slug: project.slug } }"
             class="btn btn-outline-info btn-outline">Mostra</router-link>
         </li>
