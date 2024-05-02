@@ -1,21 +1,30 @@
 <script>
 import axios from 'axios';
+import AppHeader from '../components/AppHeader.vue';
 
 export default {
   name: 'HomePage',
+
+  components: {
+    AppHeader
+  },
+
   data() {
     return {
       projects: [],
+      filteredProjects: [],
       apiLinks: [],
       apiPageNumber: 1,
       isLoading: true,
       baseApiUrl: 'http://127.0.0.1:8000/api',
       currentPage: 1,
-    }
+    };
   },
+
   mounted() {
     this.apiCall();
   },
+
   methods: {
     apiCall() {
       this.isLoading = true;
@@ -28,34 +37,52 @@ export default {
           this.isLoading = false;
         }
         this.projects = res.data.results.data;
+        this.filteredProjects = this.projects;
         this.apiLinks = res.data.results.links;
-      })
+      });
     },
+
     changeApiPage(pageUrl) {
       this.isLoading = true;
       axios.get(pageUrl)
         .then(response => {
           this.projects = response.data.results.data;
+          this.filteredProjects = this.projects;
           this.apiLinks = response.data.results.links;
           this.isLoading = false;
-        })
+        });
     },
+    
     setCurrentPage(pageNumber) {
       this.currentPage = pageNumber;
+    },
+    
+    applyFilter(filterQuery) {
+
+      if (filterQuery.trim() === '') {
+        this.filteredProjects = this.projects;
+      } else {
+        this.filteredProjects = this.projects.filter(project =>
+          project.title.toLowerCase().includes(filterQuery.toLowerCase())
+        );
+      }
     }
-  },
+  }
 }
 </script>
 
 <template>
-  <div>
+
+<AppHeader @filter-projects="applyFilter" />
+
+  <div class="container">
 
     <h1>I nostri Projects:</h1>
 
     <div v-if="!isLoading">
 
       <ul>
-        <li v-for="project in projects" :key="project.slug" class="mb-2">
+        <li v-for="project in filteredProjects" :key="project.slug" class="mb-2">
           {{ project.title }} <router-link :to="{ name: 'single-project', params: { slug: project.slug } }"
             class="btn btn-outline-info btn-outline">Mostra</router-link>
         </li>

@@ -1,6 +1,6 @@
 <script>
 
-import AppHeader from './components/AppHeader.vue';
+
 import AppFooter from './components/AppFooter.vue';
 
 export default {
@@ -8,24 +8,19 @@ export default {
   data() {
     return {
       
-    }
-
-    
+    } 
   },
   
   components: {
-    AppHeader,
     AppFooter
   },
 
   mounted() {
 
-    
   },
 
   methods: {
 
-    
   },
 }
 
@@ -33,9 +28,7 @@ export default {
 
 <template>
 
-  <AppHeader></AppHeader>
-
-  <div class="container py-5">
+  <div>
 
     <router-view></router-view>
 
