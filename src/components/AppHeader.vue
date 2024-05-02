@@ -27,7 +27,7 @@ export default {
                     </a>
 
                     <div>
-                        <input type="text" v-model="filterQuery" placeholder="Filtra progetti..." @input="filterProjects">
+                        <input class="form-control" type="search" v-model="filterQuery" placeholder="Filtra progetti..." @input="filterProjects">
                     </div>
 
                 </div>
