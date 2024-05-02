@@ -53,7 +53,7 @@ export default {
     <div v-if="!isLoading">
 
       <ul>
-        <li v-for="project in projects" class="mb-2">
+        <li v-for="project in projects" :key="project.slug" class="mb-2">
             {{ project.title }} <router-link :to="{name: 'single-project', params: {slug: project.slug}}" class="btn btn-outline-info btn-outline">Mostra</router-link>
         </li>
       </ul>
