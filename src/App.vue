@@ -4,6 +4,7 @@
 import AppFooter from './components/AppFooter.vue';
 import AppHeader from './components/AppHeader.vue';
 
+
 export default {
 
   data() {
@@ -32,7 +33,7 @@ export default {
 
  <AppHeader></AppHeader>
 
-  <div class="container py-5">
+  <div class="py-5">
 
     <router-view></router-view>
 

@@ -3,11 +3,14 @@ import axios from 'axios';
 import AppHeader from '../components/AppHeader.vue';
 import {store} from '../store.js';
 
+import AppJumbo from '../components/AppJumbo.vue';
+
 export default {
   name: 'HomePage',
 
   components: {
-    AppHeader
+    AppHeader,
+    AppJumbo
   },
 
   data() {
@@ -63,8 +66,9 @@ export default {
 </script>
 
 <template>
+  <AppJumbo></AppJumbo>
 
-  <div class="container">
+  <div class="container w-75">
 
     <h1>I nostri Projects:</h1>
 

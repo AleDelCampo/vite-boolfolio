@@ -49,9 +49,9 @@ export default {
               Mini progetto Boolean classe 118
             </div>
 
-            <div class="row row-cols-3">
+            <div class="row">
 
-                <div class="col">
+                <div class="col d-flex flex-column align-items-center ">
 
                     <div class="col-title">
                         Members
@@ -71,7 +71,7 @@ export default {
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col d-flex flex-column align-items-center">
 
                     <div class="col-title">
                         Contact
@@ -87,7 +87,7 @@ export default {
 
                 </div>
 
-                <div class="col">
+                <div class="col d-flex flex-column align-items-center">
                     <div class="col-title">
                         Social
                     </div>
@@ -125,6 +125,7 @@ export default {
 #footer-title{
     font-size:1.6em;
     font-weight: bold;
+    text-align: center;
 
     margin-bottom: 20px;
 }
@@ -139,9 +140,10 @@ export default {
 ul{
     margin: 0;
     padding: 0;
-
+    
     display: flex;
     flex-direction: column;
+    align-items:center;
     row-gap:5px;
 
     font-size: .8em;
@@ -174,6 +176,7 @@ ul{
     max-width: 200px;
 
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap:10px;
 
