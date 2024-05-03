@@ -21,7 +21,6 @@ export default {
 
         this.projectSlug = this.$route.params.slug;
         axios.get(this.apiBaseUrl + '/projects/' + this.projectSlug).then(res => {
-            // console.log(res)
             if(res.data.success) {
                 
                 this.project = res.data.project
